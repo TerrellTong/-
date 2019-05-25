@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		table,
+		td {
+			border: 1px solid black;
+			width: 600px;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		document.write("<table>");  //用table,td,tr标签来进行换行
+		for(var x=1;x<=9;x++){
+			document.write("<tr>");
+			for(var y=1;y<=x;y++)
+			{
+				document.write("<td>"+x+"*"+y+"="+x*y+"</td>");
+			}
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	</script>
+</body>
+</html>

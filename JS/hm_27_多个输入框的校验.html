@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//由于所有的校验都要具备一些公用的方法，因此我们将它抽象出来形成一个公有的方法
+		function check(userName,Reg,spanName,info)
+		{
+			//1.获取输入框结点
+			var inputNode = document.getElementsByName(userName)[0];
+			//2.获取输入框的内容
+			var inputValue = inputNode.value;
+			//3.获取要将输入的内容显示的结点
+			var SpanNode = document.getElementById(spanName);
+			//4.通过内容与正则表达式进行判断
+			if(Reg.test(inputValue))
+			{
+				//将正确输出的信息用InnerHTML显示
+				SpanNode.innerHTML = info+"正确";
+				return true;
+			}
+			else {
+				SpanNode.innerHTML = info+"错误";
+				return false;
+			}
+		}
+
+		function checkUser()
+		{
+			//定义正则
+			var reg=/^[a-z]{4}$/;
+			return check("user",reg,"userspan","用户名")
+		}
+
+		function checkPsw()
+		{
+			var reg = /^[0-9]{4}$/;
+			return check("psw",reg,"pswspan","密码")
+		}
+
+		function checkRepsw()
+		{
+			//1.获取密码框里面的信息
+			var pswValue = document.getElementsByName("psw")[0].value;
+			//2.获取重输密码框的信息
+			var RepswValue = document.getElementsByName("repsw")[0].value;
+			//3.获取校验区的结点
+			var repswspanNode = document.getElementById("repswspan");
+			//4.将两者进行比较
+			if(pswValue == RepswValue)
+			{
+				repswspanNode.innerHTML = "两次密码一致".fontcolor("blue");
+				return true;
+			}
+			else
+			{
+				repswspanNode.innerHTML = "两次密码不一致".fontcolor("red");
+				return false;
+			}
+		}
+
+		function checkMail(){
+			var reg = /^\w+@\w+(\.\w+)+$/ //+代表一次或多次
+			return check("mail",reg,"mailspan","邮箱");
+		}
+		function checkForm(){
+			if(checkUser()&&checkPsw()&&checkRepsw()&&checkMail())
+				return true;
+			return false;
+		}
+	</script>
+</head>
+<body>
+	<form id="userinfo" onsubmit="return checkForm()">
+
+			用户名称：<input type="text" name="user" onblur="checkUser()" />
+			<span id="userspan"></span>
+			<br/>
+			
+			输入密码：<input type="text" name="psw" onblur="checkPsw()"  />
+			<span id="pswspan"></span>
+			<br/>
+			
+			确定密码：<input type="text" name="repsw" onblur="checkRepsw()" />
+			<span id="repswspan"></span>
+			<br/>
+			
+			邮件地址：<input type="text" name="mail" onblur="checkMail()"  />
+			<span id="mailspan"></span>
+			<br/>
+			
+			<input type="submit" value="提交数据" />
+		</form>
+</body>
+</html>

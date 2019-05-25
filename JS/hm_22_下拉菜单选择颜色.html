@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function change(){
+			//1.获取所有的下拉框结点
+			var selNode = document.getElementById("setColor");
+			//2.将已经选择中的下拉菜单的颜色记录下拉
+			var colorNode = selNode.options[selNode.selectedIndex].value;//options集合是返回所有的下拉标签的可供选项的集合，selectedIndex是代表已被选择的值
+			//3.将保存的value赋值给text
+			document.getElementById("text").style.color = colorNode;
+
+		}
+	</script>
+</head>
+<body>
+	<select id="setColor" onchange="change()">
+		<!-- 在下拉菜单框中，用的是onchange来代表复选框选择的事件 -->
+		<option  value="black">选择颜色</option>
+		<option style="background-color: red" value="red"></option>
+		<option style="background-color: green" value="green"></option>
+		<option style="background-color: skyblue" value="skyblue"></option>
+	</select>
+	<hr>
+	<div id="text">
+			需要显示效果的文字<br/>
+			需要显示效果的文字<br/>
+			需要显示效果的文字<br/>
+			需要显示效果的文字<br/>
+	</div>
+</body>
+</html>

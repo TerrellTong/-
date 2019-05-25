@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		table {
+			border: 1px solid red;
+			width: 500px;
+			border-collapse: collapse; /*将表格属性的边框合并成单一的边框*/
+		}
+		table td {
+			border: 1px solid red;
+			padding: 10px;
+		}
+		table th {
+			border: 1px solid red;
+			padding: 10px;
+		}
+		input[type=text]
+		{
+			border: 1px solid black;
+		}
+	</style>
+	<script type="text/javascript">
+		function crttable()
+		{
+			//1.创建一个table结点
+			var tableNode = document.createElement("table");
+			//将表的名称进行设置
+			tableNode.setAttribute("id","tableid");
+			//2.获取文本中行列的值
+			var row = parseInt(document.getElementsByName("row")[0].value);
+			var col = parseInt(document.getElementsByName("col")[0].value);
+			//3.通过循环来添加元素
+			for(var x=0;x<row;x++){
+				//4.添加行(tr)元素
+				var trNode = tableNode.insertRow();
+				for(var y=0;y<col;y++){
+					//5.添加单元格(td)元素
+					var tdNode = trNode.insertCell();
+					tdNode.innerHTML = (x+1)+"-"+(y+1); 
+				}
+			}
+			//6.将已经建立好的表格结点添加到div中
+			document.getElementsByTagName("div")[0].appendChild(tableNode);
+			//7.获取button按钮并使button按钮只能按一次
+			document.getElementsByName("crt")[0].disabled=true;
+		}
+
+		function delRow()
+		{
+			//1.获取已经建立的表格结点
+			var tableNode = document.getElementById("tableid");
+			//2.获取要删除的行
+			var row = document.getElementsByName("delrow")[0].value;
+			//合法性判断
+			if(row>=1 && row<=tableNode.rows.length){//rows是存放了table的所有行的一个集合，我们通过调用它的length方法可以得到这个表格有多少行
+				//3.删除
+				tableNode.deleteRow(row-1); //由于参数是下标值，而且下标是从0开始，则要-1
+			}
+			else
+			{
+				alert("所删除的行不存在");
+			}
+		}
+
+		function delCol()
+		{
+			//1.获取已经建立的表格结点
+			var tableNode = document.getElementById("tableid");
+			//2.获取要删除的列
+			var col = document.getElementsByName("delcol")[0].value;	
+			//合法性判断
+			if(col>=1 && col<=tableNode.rows[0].cells.length)//由于每一行的元素都相同，则我们取表格第一行的所有的单元格，相对应的就是列
+			{
+				for(var x=0;x<tableNode.rows.length;x++)
+					//3.删除这一行的列元素
+					tableNode.rows[x].deleteCell(col-1);
+			}
+			else
+			{
+				alert("所删除的列不存在");
+			}
+		}
+	</script>
+</head>
+<body>
+	行:<input type="text" name="row">
+	列:<input type="text" name="col">
+	<input type="button" value="创建表格" name="crt" onclick="crttable()">
+	<hr>
+	<input type="text" name="delrow"><input type="button" value="删除行" onclick="delRow()"><br><br>
+	<input type="text" name="delcol"><input type="button" value="删除列" onclick="delCol()">
+	<hr>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#contentid {
+			display:none;
+		}
+	</style>
+	<script type="text/javascript">
+		function showContent(node){
+			if(node.value=="yes")
+			{
+				contentid.style.display = "block";
+			}
+			else
+				contentid.style.display = "none";
+		}
+	</script>
+</head>
+<body>
+	<div>
+	您要参与问卷调查吗：
+	<input type="radio" name="wenjuan" value="yes" onclick="showContent(this)" />是  
+	<input type="radio" name="wenjuan" value="no" checked="checked" onclick="showContent(this)" />否
+	</div>
+	<div id="contentid">
+	问卷调查内容：<BR/>
+	您的姓名：<input type="text" /><br>
+	您的邮箱：<input type="text" />
+	</div>
+</body>
+</html>

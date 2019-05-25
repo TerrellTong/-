@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul {
+			list-style:none;
+			margin: 0px;
+			padding: 0px;
+		}
+		.close{
+				display:none;
+			}
+		.open{
+				display:block;
+			}
+	</style>
+	<script>
+		function showResult(){
+			//1.获取所有的单选框按钮
+			var RadioNode = document.getElementsByName("no1");
+			//标记是否选中了单选框
+			var flag = false;
+			//2.判断当中是否有单选框按钮被选中
+			for(var x=0;x<RadioNode.length;x++)
+			{
+				if(RadioNode[x].checked)
+				{
+					var TNode = RadioNode[x].value;
+					flag = true;
+					break;
+				}
+			}
+			if(!flag)
+			{
+				document.getElementById("errinfo").innerHTML = "没有选择".fontcolor("red");
+			}
+			//判断获取框中的value的值
+			if(TNode>=1 && TNode<=3)
+			{
+				document.getElementById("res_1").className = "open";
+				document.getElementById("res_2").className = "close";
+			}
+			else{
+				document.getElementById("res_1").className = "close";
+				document.getElementById("res_2").className = "open";
+			}
+		}
+	</script>
+</head>
+<body>
+	<h2>欢迎您参与性格测试：</h2>
+	<div>
+		<h3>第一题：</h3>
+		<span>您喜欢的水果是什么？</span>
+		<ul id="no1ul">
+		<li><input type="radio" name="no1" value="1" />葡萄</li>
+		<li><input type="radio" name="no1" value="2" />西瓜</li>
+		<li><input type="radio" name="no1" value="3" />苹果</li>
+		<li><input type="radio" name="no1" value="4" />芒果</li>
+		<li><input type="radio" name="no1" value="5" />樱桃</li>
+		</ul>
+		</div>
+		<div>
+		<input type="button" value="查看测试结果" onclick="showResult()" />
+		<span id="errinfo"></span>
+		<div id="res_1" class="close">1-3分：你的性格内向并扭曲，建议...</div>
+		<div id="res_2" class="close">4分以上：你的性格外向并分裂，建议...</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function change()
+		{
+			//获取所有a标签的数组
+			var nodes = document.getElementsByTagName("a")
+			for(var i=0;i<nodes.length;i++)
+				nodes[i].target="_blank";
+		}
+		function change2()
+		{
+			//将div里面的a标签的网站以空页面打开
+			//1、获取div节点,由于用的tag获得的。则divNode是一个数组
+			var divNode = document.getElementsByTagName("div");
+			//2.获取div节点中的a标签
+			var aNodes = divNode[0].getElementsByTagName("a");
+			//3.将div里面的a标签的打开属性更改
+			for(var j=0;j<aNodes.length;j++)
+				aNodes[j].target="_blank";
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="更改状态栏" onclick="change2()">
+	<a href="https://www.baidu.com">百度</a>
+	<a href="https://www.sina.com">新浪</a>
+	<div>
+	<a href="www.google.com">新闻标签1</a>
+	<a href="www.google.com">新闻标签2</a>
+	<a href="www.google.com">新闻标签3</a>
+	</div>
+</body>
+</html>

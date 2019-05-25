@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		a:link,
+		a:visited {
+			color: #0044ff;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #ff8800;
+		}
+		div {
+			width: 500px;
+			border: 1px solid green;
+			padding: 10px;
+		}
+		/*预定义一些样式封装到选择器中，一般用的是类选择器*/
+		.norm {
+			color: #000000;
+			font-size: 16px;
+			background-color: #cdd8d0;
+		}
+		.max {
+			color: #808080;
+			font-size: 28px;
+			background-color: #9ce9b4;
+		}
+		.min {
+			color: #ffffff;
+			font-size: 12px;
+			background-color: #f1b96d;
+		}
+	</style>
+	<script type="text/javascript">
+		//如果要求的类型过多，则采用如1的方法则会导致耦合性变得很强，不利于扩展
+		function change(styleName){
+		//1.获取结点
+		var newsNode = document.getElementById("news");
+		//2.设置className的属性值
+		newsNode.className = styleName;
+	}
+	</script>
+</head>
+<body>
+	<body>
+	<h1>这是一个新闻标题</h1>
+	<hr>
+	<!-- 通过JavaScript:void(0)能够删除a标签自带的响应事件 -->
+	<a href="javascript:void(0)" onclick="change('max')">大字体</a>
+	<a href="javascript:void(0)" onclick="change('norm')">中字体</a>
+	<a href="javascript:void(0)" onclick="change('min')">小字体</a>
+	<div id="news" class="norm">
+		这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！
+	</div>
+</body>
+</html>

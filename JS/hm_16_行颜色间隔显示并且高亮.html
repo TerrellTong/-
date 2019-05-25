@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		table{
+		border:#249bdb 1px solid;
+		width:500px;
+		border-collapse:collapse;
+		}
+		table td{
+		border:#249bdb 1px solid;
+		padding:10px;
+		}
+		table th{
+		border:#249bdb 1px solid;
+		padding:10px;
+		background-color: rgb(200,200,200);
+		}
+		.one {
+			background-color: #e1e16a;
+		}
+		.two {
+			background-color: #75f094;
+		}
+		.in {
+			background-color:#f9360d;
+		}
+	</style>
+	<script type="text/javascript">
+		//记录鼠标移进时的类名,全局变量
+		var name ;
+		function color()
+		{
+			//1.获取table结点
+			var tableNode = document.getElementById('info');
+			//2.获取所有的行元素
+			var row = tableNode.rows;
+			//3.遍历所有的行,从第二行遍历并且更改相应的class属性
+			for(var x=1;x<row.length;x++)
+			{
+				if(x%2==1)
+					row[x].className = "one";
+				else
+					row[x].className = "two";
+				//给每个行都添加两个事件
+				row[x].onmouseover = function(){
+					name = this.className;
+					this.className = "in";
+				}
+				row[x].onmouseout = function(){
+					this.className = name;
+				}
+			}
+		}
+		//onload也是事件（代表的是加载时做出相应），事件主要是代表着某个东西的发生时做出相应的反应（用函数来实现）
+		onload = function(){
+			color();
+		}
+	</script>
+</head>
+<body>
+	<table id="info">
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>地址</th>
+			</tr>
+			<tr>
+				<td>张三</td>
+				<td>27</td>
+				<td>上海</td>
+			</tr>
+			<tr>
+				<td>小强</td>
+				<td>26</td>
+				<td>北京</td>
+			</tr>
+			<tr>
+				<td>李四</td>
+				<td>29</td>
+				<td>广州</td>
+			</tr>
+			<tr>
+				<td>孙八</td>
+				<td>23</td>
+				<td>南京</td>
+			</tr>
+			<tr>
+				<td>二麻子</td>
+				<td>19</td>
+				<td>大连</td>
+			</tr>
+			<tr>
+				<td>犀利姐</td>
+				<td>32</td>
+				<td>青岛</td>
+			</tr>
+			<tr>
+				<td>旺财</td>
+				<td>19</td>
+				<td>深圳</td>
+			</tr>
+			<tr>
+				<td>周七</td>
+				<td>42</td>
+				<td>铁岭</td>
+			</tr>
+			<tr>
+				<td>毕姥爷</td>
+				<td>18</td>
+				<td>沈阳</td>
+			</tr>
+		</table>
+</body>
+</html>

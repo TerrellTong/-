@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//基础的校验规则
+		function checkUser(){
+			//1.获取user的输入框
+			var userNode = document.getElementsByName('user')[0];
+			//2.获取id为userspan结点
+			var spanNode = document.getElementById("userspan");
+			//3.获取user里面的值
+			var userValue = userNode.value;
+			if(userValue == "aaa")
+				spanNode.innerHTML = "bingo";
+		}
+		//正则表达式规则
+		function checkUser2(){
+			//1.获取user的输入框
+			var userNode = document.getElementsByName('user')[0];
+			//2.获取id为userspan结点
+			var spanNode = document.getElementById("userspan");
+			//3.获取user里面的值
+			var userValue = userNode.value;
+			//4.校验规则
+			var reg = new RegExp("^[a-z]{4}$"); //必须是4个字母^是开头，$是结尾
+			if(reg.test(userValue))
+				spanNode.innerHTML = "bingo";
+			else
+				spanNode.innerHTML = "wrong";
+		}
+	</script>
+</head>
+<body>
+	<form >
+		<!-- onblur是失去焦点是触发的事件 -->
+		用户名称:<input type="text" name="user" onblur="checkUser2()">
+		<span id="userspan"></span>
+		<br>
+		输入密码:<input type="text" name="pwd">
+		<span id="pwdspan"></span>
+		<br>
+		<input type="submit" value="提交数据">
+	</form>
+</body>
+</html>

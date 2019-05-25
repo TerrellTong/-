@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function get()
+		{
+			var divType = document.getElementById("zz");
+			//获取div中的节点类型名
+			var name = divType.nodeName;
+			// alert(name);
+			//获取div区域中的内容
+			var text = divType.innerHTML;
+			// alert(text);
+			//修改div区域的内容
+			divType.innerHTML = "修改成功";
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="测试ById方法" onclick="get()">
+	<div id="zz">这是div区域</div>
+</body>
+</html>

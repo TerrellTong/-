@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		a:link,
+		a:visited {
+			color: #0044ff;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #ff8800;
+		}
+		div {
+			width: 500px;
+			border: 1px solid green;
+			padding: 10px;
+		}
+	</style>
+	<script type="text/javascript">
+		function change(size)
+		{
+			//1.获取当前新闻内容的结点
+			var newsNode = document.getElementById("news");
+			//2.对结点内容的数据样式进行改写，用里面的style属性
+			newsNode.style.fontSize = size+"px";
+		}
+	</script>
+</head>
+<body>
+	<!-- 思路：
+	1.标签封装
+	2.定义样式
+	3.确定事件源和事件，以及处理方式中被处理的结点 -->
+	<h1>这是一个新闻标题</h1>
+	<hr>
+	<!-- 通过JavaScript:void(0)能够删除a标签自带的响应事件 -->
+	<a href="javascript:void(0)" onclick="change(28)">大字体</a>
+	<a href="javascript:void(0)" onclick="change(16)">中字体</a>
+	<a href="javascript:void(0)" onclick="change(12)">小字体</a>
+	<div id="news">
+		这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！这是新闻内容！
+	</div>
+
+</body>
+</html>

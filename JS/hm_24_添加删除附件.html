@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		a:link,
+		a:visited {
+			color: #179ed9;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #f36021;
+		}
+	</style>
+	<script>
+		function addFile() {
+			//1.获取table结点
+			var tableNode = document.getElementById('field');
+			//2.添加一行
+			var TrNode = tableNode.insertRow();
+			//3.在行中添加创建文件的一个单元格
+			var TdNode_file = TrNode.insertCell();
+			//4.添加删除文件的单元格
+			var TdNode_del = TrNode.insertCell();
+			//5.为创建文件的单元格添加一个放入文本的框
+			TdNode_file.innerHTML = "<input type='file'>";
+			//6.为删除的单元格添加一个超链接
+			TdNode_del.innerHTML ="<a href='javascript:void(0)' onclick='deleFile(this)'>删除文件</a>";
+		}
+
+		function deleFile(node){
+			var oTrNode = node.parentNode.parentNode;
+			oTrNode.parentNode.removeChild(oTrNode);
+		}
+	</script>
+</head>
+<body>
+	<table id="field">
+		<tr>
+			<td><a href="javascript:void(0)" onclick="addFile()">添加附件</a></td>
+		</tr>
+	</table>
+</body>
+</html>

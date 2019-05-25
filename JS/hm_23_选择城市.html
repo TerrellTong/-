@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function selectCity()
+		{
+			//1、获取两个选择框的结点
+			var sel = document.getElementById("selid");
+			var sub = document.getElementById("subselid");
+			//2.将各个区域对应的区域用二维数组存储
+			var collCitied = [['选择城市'],['海淀区','朝阳区','东城区','西城区']
+									,['济南','青岛','烟台','威海']
+									,['沈阳','大连','鞍山','抚顺']
+									,['石家庄','保定','邯郸','廊坊']];
+			//3.通过下拉菜单判断哪个框被选中了
+			var sel = selid.selectedIndex;
+			//4.通过上一步得到的角标去容器中选择哪一个备选值
+			var arrCities = collCitied[sel];
+			//5.清空子容器
+			sub.length = 0;
+			//6.遍历arr数组从而将里面得到的内容封装到option当中
+			for(var x=0;x<arrCities.length;x++)
+			{
+				//创建结点
+				var OptNode = document.createElement("option");
+				//把值赋给结点
+				OptNode.innerHTML = arrCities[x];
+				//把结点接到select中
+				sub.appendChild(OptNode);
+			}
+
+		}
+	</script>
+</head>
+<body>
+		<select id="selid" onchange="selectCity()">
+			<option>选择省市</option>
+			<option value="beijing">北京</option>
+			<option>山东</option>
+			<option>辽宁</option>
+			<option>河北</option>
+		</select>
+		
+		<select id="subselid">
+			<option>选择城市</option>
+		</select>
+</body>
+</html>

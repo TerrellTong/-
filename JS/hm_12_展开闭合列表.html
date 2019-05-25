@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		dl dd {
+			margin:0;
+		}
+		dl dt {
+			color: #ff6666;
+		}
+		dl {
+			height: 18px;
+		}
+		/*预定义样式*/
+		.open {
+			height: 112px;
+			overflow: visible;
+		}
+		.close {
+			overflow: hidden;
+		}
+	</style>
+
+	<script type="text/javascript">
+		var flag = true;
+		function list(node) { //当前node结点是dt
+			//1.获取所有的dl结点
+			var dlNodes = document.getElementsByTagName("dl");
+			//2.获取当前结点的父结点（dl结点）
+			var cNode = node.parentNode;
+			//3.遍历所有的dl结点，如果是当前的结点就打开，如果不是当前结点则其他的下拉菜单进行隐藏
+			for(var x = 0;x<dlNodes.length;x++)
+			{
+				if(dlNodes[x] == cNode)
+				{
+					if (cNode.className=="close") {
+						cNode.className = "open";
+					}else
+					{
+						cNode.className = "close";
+					}
+				}
+				else
+					dlNodes[x].className = 'close';
+			}
+		}
+	</script>
+</head>
+<body>
+	<!-- 思路：
+	1.通过标签封装对象
+	2.进行渲染
+	3.弄清楚事件源，事件以及要处理的结点
+	4.事件的相应 -->
+	<dl class='close'>
+		<dt onclick="list(this)">显示条目一</dt>
+			<dd>展开内容1</dd>
+			<dd>展开内容1</dd>
+			<dd>展开内容1</dd>
+			<dd>展开内容1</dd>
+	</dl>
+
+	<dl class='close'>
+		<dt onclick="list(this)">显示条目二</dt>
+			<dd>展开内容2</dd>
+			<dd>展开内容2</dd>
+			<dd>展开内容2</dd>
+			<dd>展开内容2</dd>
+	</dl>
+
+	<dl class='close'>
+		<dt onclick="list(this)">显示条目三</dt>
+			<dd>展开内容3</dd>
+			<dd>展开内容3</dd>
+			<dd>展开内容3</dd>
+			<dd>展开内容3</dd>
+	</dl>
+</body>
+</html>

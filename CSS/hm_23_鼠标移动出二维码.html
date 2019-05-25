@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style >
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: #ccc;
+			text-align: center;
+			line-height: 200px;
+			margin: 0 auto;
+			margin-top:100px; 
+			position: relative;
+		}
+		img {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			top:0px;
+			right: 0px;
+			display: none;
+		}
+		div:hover img {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		扫二维码
+		<img src="timg.jpg" >
+	</div>
+</body>
+</html>

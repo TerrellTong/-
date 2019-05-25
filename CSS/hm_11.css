@@ -1,0 +1,13 @@
+.site-r a{
+	color: red;
+}
+.nav li a{
+	color: skyblue;
+}
+body{
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+.nav>ul>li>a{
+	color: green;
+}

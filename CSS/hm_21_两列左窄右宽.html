@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;  /*初始化内外边距*/
+		}
+		.top,
+		.bar,
+		.main,
+		.footer {
+		width: 960px;
+		border:1px dashed #ccc; 
+		margin: 0 auto;
+		margin-bottom: 10px;  /*一定要写在margin后面！！*/
+		text-align: center;
+		}
+		.top {
+			height: 200px;
+			background-color: pink;
+		}
+		.bar {
+			height: 300px;
+			background-color: skyblue;
+		}
+		.main {
+			height: 400px;
+		}
+		.footer {
+			height: 500px;
+			background-color: hotpink;
+		}
+		.left {
+			width: 350px;
+			height: 400px;
+			background-color: yellow;
+			float: left;    
+		}
+		.right {
+			width: 600px;
+			height: 400px;
+			background-color: yellow;
+			float: right;   /*由于中间宽度是10px则我们只需要把right右浮动，left左浮动则就可以出现中间空白距，不需要写margin也可以实现浮动*/
+		}
+	</style>
+</head>
+<body>
+	<div class="top">top</div>
+	<div class="bar">bar</div>
+	<div class="main">
+		<div class="left">lef</div>
+		<div class="right">right</div>
+	</div>
+	<div class="footer">footer</div>
+</body>
+</html>
